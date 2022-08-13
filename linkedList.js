@@ -27,7 +27,35 @@ export default class LinkedList {
     }    
   }
 
+  size(){
+    return this.length;
+  }
+
+  getHead(){
+    return this.head || -1;
+  }
+
+  getTail(){
+    return this.tail || -1;
+  }
+
+  at(index){
+    if(this.length === 0 || index >= this.length){
+      return undefined;
+    }
+    let currentNode = this.head;
+    let i = 0; 
+    while(i < index){
+      currentNode = currentNode.next;
+      i++;
+    }
+    return currentNode;
+  }
 }
+
+
+
+
 
 class ListNode {
   constructor( value = null, next = null ){

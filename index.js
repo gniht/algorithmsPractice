@@ -14,12 +14,16 @@ let sorted = mergeSort(unsorted);
 output.innerText = `Fibonacci of ${num1} is ${fib(num1)}.`;
 sortedDiv.innerText = `${unsorted.toString()} Sorts to: ${sorted}`;
 
-const test = new LinkedList();
+let test = new LinkedList();
+console.log("tail: ",test.getTail());
 test.append(21);
-console.log(test.head);
+console.log("head: ",test.getHead());
+console.log("tail: ",test.getTail());
 test.prepend(3);
-console.log(test.head);
-
+console.log("head: ",test.getHead());
+console.log("tail: ",test.getTail());
+console.log("tail: ",test.at(1).value);
+console.log("size: ",test.size());
 
 
 

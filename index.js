@@ -24,6 +24,7 @@ console.log("head: ",test.getHead());
 console.log("tail: ",test.getTail());
 console.log("tail: ",test.at(1).value);
 console.log("size: ",test.size());
+console.log("size: ",test.longNess);
 
 
 

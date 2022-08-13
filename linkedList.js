@@ -30,7 +30,7 @@ export default class LinkedList {
   size(){
     return this.length;
   }
-
+  
   getHead(){
     return this.head || -1;
   }
@@ -51,11 +51,9 @@ export default class LinkedList {
     }
     return currentNode;
   }
+
+
 }
-
-
-
-
 
 class ListNode {
   constructor( value = null, next = null ){

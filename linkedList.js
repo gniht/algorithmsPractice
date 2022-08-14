@@ -52,8 +52,81 @@ export default class LinkedList {
     return currentNode;
   }
 
+  pop(){    
+    const lastNode = this.getTail();
+    console.log(lastNode);
+    this.tail = this.at(this.length-2);
+    this.tail.next = null;    
+    
+    return lastNode;    
+  }
+
+  contains(value){
+    let current = this.head;
+    let searching = true;
+    while(searching){
+      if(current.value === value){
+        return true;
+      }
+      if(current.next === null){
+        searching = false;
+      }
+      current = current.next;
+    }
+    return false;
+  }
+
+  find(value){
+    let current = this.head;
+    let index = 0;
+    while(index < this.length){
+      if(current.value === value){
+        return index;
+      }
+      if(current.next){
+        current = current.next;
+      }      
+      index++;
+    }
+    return null;
+  }
+
+  toString(){
+    let result = '';
+    let current = this.head;
+    while(current){
+      result += `( ${current.value} ) -> `;
+      current = current.next;
+    }
+    return result += 'null';
+  }
+
+  insertAt(value, index){
+    if(index === 0){
+      this.prepend(value);
+      return;
+    }
+    if (index > this.length){
+      return -1;
+    }
+    if(index === this.length){
+      this.append(value);
+      return;
+    }
+    let current = this.head;
+    let currentIndex = 0;
+    while(currentIndex < index){
+      if(currentIndex + 1 === index){
+        let insertedNode = new ListNode(value, current.next);
+        current.next = insertedNode;
+      }
+      current = current.next;
+      currentIndex++;
+    }
+  }
 
 }
+
 
 class ListNode {
   constructor( value = null, next = null ){

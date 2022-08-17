@@ -9,7 +9,7 @@ body.appendChild(output);
 body.appendChild(sortedDiv);
 
 let num1 = 10;
-const unsorted = [1, 12, 13, 4, 5, 9, 10, 3, 7, 6, 2, 8, 11, 0];
+const unsorted = [1, 12, 13, 4, 5, 9, 10, 3, 7, 6, 2, 8, 11, 0, 14];
 let sorted = mergeSort(unsorted);
 output.innerText = `Fibonacci of ${num1} is ${fib(num1)}.`;
 sortedDiv.innerText = `${unsorted.toString()} Sorts to: ${sorted}`;
@@ -24,7 +24,7 @@ console.log("head: ",test.getHead());
 console.log("tail: ",test.getTail());
 console.log("tail: ",test.at(1).value);
 console.log("size: ",test.size());
-console.log("size: ",test.longNess);
+console.log(sorted[Math.floor(sorted.length/2)]);
 
 
 

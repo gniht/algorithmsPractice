@@ -9,4 +9,12 @@ describe('A binary search tree', () => {
     expect(tree.root.value).toBe(3);
   });
 
+  it('can find the node with a given value', () => {
+    expect(tree.find(3)).toBe(tree.root);
+  });
+
+  it('can determine when a given value is not in the tree', () => {
+    expect(tree.find(0)).toBe(-1);
+  });
+
 });

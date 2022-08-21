@@ -1,8 +1,27 @@
 
 class Tree {
-  constructor(arr){
-    this.root = buildTree(arr);    
-  }  
+  constructor(sortedArray){
+    this.nodeArray = sortedArray;
+    this.root = buildTree(sortedArray);    
+  }
+  insert(value){}
+  
+  find(value){
+    let searching = true;
+    let currentNode = this.root;
+    while(searching){      
+      if(currentNode === null || currentNode.value === value){
+        searching = false;
+      }else{
+        if(value > currentNode.value){
+          currentNode = currentNode.right;
+        }else{
+          currentNode = currentNode.left;
+        }
+      }
+    }
+    return currentNode ? currentNode : -1;
+  }
 }
 
 class TreeNode {
@@ -10,7 +29,7 @@ class TreeNode {
     this.value = value;
     this.left = left;
     this.right = right;
-  }
+  }  
 }
 
 function buildTree(sortedArray){
@@ -34,7 +53,6 @@ function buildTree(sortedArray){
   );
   return rootNode;
 }
-
 
 
 export default Tree;

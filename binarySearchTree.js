@@ -4,7 +4,36 @@ class Tree {
     this.nodeArray = sortedArray;
     this.root = buildTree(sortedArray);    
   }
-  insert(value){}
+  insert(value){
+    let currentNode = this.root;
+    let searching = true;
+    let nodeToInsert = new TreeNode(value);
+    while(searching){
+      if(currentNode.value === value){
+        return false;
+      }
+      if(value > currentNode.value){
+        if(currentNode.right === null || value < currentNode.right.value){
+          nodeToInsert.right = currentNode.right;
+          currentNode.right = nodeToInsert;
+          searching = false;
+          return true; 
+        }else{
+          currentNode = currentNode.right;
+        }
+      }
+      if(value < currentNode.value){
+        if(currentNode.left === null || value > currentNode.left.value){
+          nodeToInsert.left = currentNode.left;
+          currentNode.left = nodeToInsert;
+          searching = false;
+          return true;
+        }else{
+          currentNode = currentNode.left;
+        }
+      }      
+    }
+  }
   
   find(value){
     let searching = true;

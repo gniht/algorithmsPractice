@@ -17,4 +17,16 @@ describe('A binary search tree', () => {
     expect(tree.find(0)).toBe(-1);
   });
 
+  it('returns false when inserting a value that is already in tree', () => {
+    expect(tree.insert(5)).toBe(false);
+  });
+
+  it('can properly insert new values', () => {
+    expect(tree.insert(4)).toBe(true);
+  });
+
+  it('can find newly inserted values', () => {
+    expect(tree.find(4)).toBe(tree.root.right);
+  });   
+
 });

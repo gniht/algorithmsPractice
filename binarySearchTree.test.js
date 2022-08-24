@@ -27,6 +27,14 @@ describe('A binary search tree', () => {
 
   it('can find newly inserted values', () => {
     expect(tree.find(4)).toBe(tree.root.right);
-  });   
+  });
+  
+  it('can delete existing values', () => {
+    expect(tree.delete(4)).toBe(true);
+  });
+
+  it('delete returns false when item to delete is not in tree', () => {
+    expect(tree.delete(4)).toBe(false);
+  });
 
 });

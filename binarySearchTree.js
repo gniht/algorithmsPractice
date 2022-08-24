@@ -51,6 +51,63 @@ class Tree {
     }
     return currentNode ? currentNode : -1;
   }
+
+  delete(value){
+    let searching = true;
+    let previousNode = null; 
+    let currentNode = this.root;
+
+    while(searching){      
+      if(currentNode === null || currentNode.value === value){
+        searching = false;
+      }else{
+        previousNode = currentNode;
+        if(value > currentNode.value){          
+          currentNode = currentNode.right;
+        }else{
+          currentNode = currentNode.left;
+        }
+      }
+    }
+    if(currentNode === null){
+      // value to delete was not in tree
+      return false;
+    }    
+    if(!currentNode.left && !currentNode.right){
+      // no children
+      if(previousNode.left === currentNode){
+        previousNode.left = null;
+        return true;
+      }else{
+        previousNode.right = null;
+        return true;
+      }     
+    }    
+    if(currentNode.left && currentNode.right){
+      // two children
+      // todo
+    }else if(currentNode.left){
+      // left child only
+      if(previousNode.left === currentNode){
+        previousNode.left = currentNode.left;
+        return true;
+      }else{
+        previousNode.right = currentNode.left;
+        return true;
+      }
+    }else if(currentNode.right){
+      // right child only
+      if(previousNode.left === currentNode){
+        previousNode.left = currentNode.right;
+        return true;
+      }else{
+        previousNode.right = currentNode.right;
+        return true;
+      }
+    }    
+
+    return 'delete!';
+  }
 }
 
 class TreeNode {

@@ -29,12 +29,16 @@ describe('A binary search tree', () => {
     expect(tree.find(4)).toBe(tree.root.right);
   });
   
-  it('can delete existing values', () => {
+  it('can delete existing nodes with 1 child', () => {
     expect(tree.delete(4)).toBe(true);
   });
 
   it('delete returns false when item to delete is not in tree', () => {
     expect(tree.delete(4)).toBe(false);
+  });
+
+  it('properly deletes nodes with two children', () => {
+    expect(tree.delete(3)).toBe(true);
   });
 
 });

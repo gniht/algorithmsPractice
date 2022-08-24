@@ -86,6 +86,29 @@ class Tree {
     if(currentNode.left && currentNode.right){
       // two children
       // todo
+      // find next successor node
+      let successor = currentNode.right;
+      let done = false;
+      while(!done){
+        if(successor.left){
+          successor = successor.left;
+        }
+        if(successor.right && (successor.right < currentNode.right.value)){
+          successor = successor.right;
+        }
+        if(!successor.left && !successor.right){
+          this.delete(successor);
+          if(previousNode){
+            previousNode.right = successor;
+          }else{
+            this.root = successor;
+          }          
+          successor.right = currentNode.right;
+          successor.left = currentNode.left;
+          return true;
+        }
+          done = true;
+      }        
     }else if(currentNode.left){
       // left child only
       if(previousNode.left === currentNode){

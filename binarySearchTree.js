@@ -130,7 +130,7 @@ class Tree {
     }    
   }
 
-  levelOrder(){
+  levelOrder(transform = null){
     let queue = [this.root];
     let levelOrderValues = [];
     
@@ -141,7 +141,11 @@ class Tree {
       if(queue[0].right){
         queue.push(queue[0].right);
       }
-      levelOrderValues.push(queue.shift().value);
+      if(transform){
+        levelOrderValues.push(transform(queue.shift().value));
+      }else{
+        levelOrderValues.push(queue.shift().value);
+      }      
     }    
     return levelOrderValues;
   }

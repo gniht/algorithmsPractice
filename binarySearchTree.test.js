@@ -46,4 +46,8 @@ describe('A binary search tree', () => {
     expect(tree2.levelOrder()).toEqual([7, 3, 10, 1, 5, 8, 13]);
   });
 
+  it('levelOrder with function passed in to operate on values', () => {
+    expect(tree2.levelOrder( n => n*2 )).toEqual([14, 6, 20, 2, 10, 16, 26]);
+  });
+
 });

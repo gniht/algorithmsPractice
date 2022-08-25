@@ -54,4 +54,8 @@ describe('A binary search tree', () => {
     expect(tree2.inorder()).toEqual([1, 3, 5, 7, 8, 10, 13]);
   });
 
+  it('preorder traversal', () => {
+    expect(tree2.preorder()).toEqual([7, 3, 1, 5, 10, 8, 13]);
+  });
+
 });

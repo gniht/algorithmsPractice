@@ -166,6 +166,21 @@ class Tree {
     }
     return values;
   }
+
+  preorder(node = this.root){
+    let currentNode = node;
+    let values = [];
+
+    values.push(currentNode.value);
+
+    if(currentNode.left){
+      values = values.concat(this.preorder(currentNode.left));
+    }
+    if(currentNode.right){
+      values = values.concat(this.preorder(currentNode.right));
+    }
+    return values;
+  }
    
 
 }

@@ -180,6 +180,21 @@ class Tree {
     }
     return values;
   }
+
+  postorder(node = this.root){
+    let currentNode = node;
+    let values = [];
+
+    if(currentNode.left){
+      values = values.concat(this.postorder(currentNode.left));
+    }
+    if(currentNode.right){
+      values = values.concat(this.postorder(currentNode.right));
+    }
+    values.push(currentNode.value);
+
+    return values;
+  }
    
 
 }

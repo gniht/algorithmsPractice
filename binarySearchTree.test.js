@@ -4,7 +4,7 @@ import Tree from './binarySearchTree.js';
 describe('A binary search tree', () => {
   const data = [1, 3, 5]//, 7, 9, 13, 14, 42, 67, 84, 86, 144, 324, 328];
   const tree = new Tree(data);
-  const tree2 = new Tree([1, 3, 5, 7, 8, 10, 13]); 
+  const tree2 = new Tree([1, 3, 5, 7, 8, 10, 13]); 1,5,3,8,13,10,7
 
   it('builds a balanced tree', () => {
     expect(tree.root.value).toBe(3);
@@ -56,6 +56,10 @@ describe('A binary search tree', () => {
 
   it('preorder traversal', () => {
     expect(tree2.preorder()).toEqual([7, 3, 1, 5, 10, 8, 13]);
+  });
+
+  it('postorder traversal', () => {
+    expect(tree2.postorder()).toEqual([1, 5, 3, 8, 13, 10, 7]);
   });
 
 });

@@ -152,7 +152,6 @@ class Tree {
 
   inorder(node = this.root){
     let currentNode = node;
-    let queue = [];
     let values = [];
     
     if(currentNode.left){

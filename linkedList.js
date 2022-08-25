@@ -53,8 +53,7 @@ export default class LinkedList {
   }
 
   pop(){    
-    const lastNode = this.getTail();
-    console.log(lastNode);
+    const lastNode = this.getTail();    
     this.tail = this.at(this.length-2);
     this.tail.next = null;    
     

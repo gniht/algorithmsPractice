@@ -128,9 +128,24 @@ class Tree {
         return true;
       }
     }    
-
-    return 'delete!';
   }
+
+  levelOrder(){
+    let queue = [this.root];
+    let levelOrderValues = [];
+    
+    while(queue.length > 0){
+      if(queue[0].left){
+        queue.push(queue[0].left);
+      }
+      if(queue[0].right){
+        queue.push(queue[0].right);
+      }
+      levelOrderValues.push(queue.shift().value);
+    }    
+    return levelOrderValues;
+  }
+
 }
 
 class TreeNode {

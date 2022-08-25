@@ -150,6 +150,24 @@ class Tree {
     return levelOrderValues;
   }
 
+  inorder(node = this.root){
+    let currentNode = node;
+    let queue = [];
+    let values = [];
+    
+    if(currentNode.left){
+      values = this.inorder(currentNode.left).concat(values);
+    }
+      
+    values.push(currentNode.value);    
+    
+    if(currentNode.right){
+      values = values.concat(this.inorder(currentNode.right));
+    }
+    return values;
+  }
+   
+
 }
 
 class TreeNode {

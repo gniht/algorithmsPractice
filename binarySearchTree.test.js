@@ -63,7 +63,17 @@ describe('A binary search tree', () => {
   });
 
   it('height returns distance of a node from farthest leaf', () => {        
-    expect(tree2.height(tree2.root)).toBe(0);
+    expect(tree2.height(tree2.root)).toBe(2);
   });
-  
+
+  it('measures depth from root to given node', () => {
+    tree2.insert(15);        
+    expect(tree2.depth(tree2.root.right.right.right)).toBe(3);
+  });
+
+  it('measures depth from root to node with a given value', () => {
+    tree2.insert(15);        
+    expect(tree2.depth(15)).toBe(3);
+  });
+
 });

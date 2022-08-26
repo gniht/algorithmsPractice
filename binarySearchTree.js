@@ -35,21 +35,36 @@ class Tree {
     }
   }
   
-  find(value){
+  find(value, countDepth = false){
+    let depth = 0;
     let searching = true;
     let currentNode = this.root;
+
     while(searching){      
       if(currentNode === null || currentNode.value === value){
         searching = false;
       }else{
         if(value > currentNode.value){
           currentNode = currentNode.right;
+          depth++;
         }else{
           currentNode = currentNode.left;
+          depth++;
         }
       }
     }
-    return currentNode ? currentNode : -1;
+    if(countDepth){
+      return depth;
+    }else{
+      return currentNode ? currentNode : -1;
+    }    
+  }
+
+  depth(nodeOrValue){
+    if(typeof nodeOrValue === 'number'){
+      return this.find(nodeOrValue, true);
+    }      
+    return this.find(nodeOrValue.value, true);    
   }
 
   delete(value){

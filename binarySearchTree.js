@@ -195,6 +195,19 @@ class Tree {
 
     return values;
   }
+
+  height(node){
+    let left = 0;
+    let right = 0;
+    
+    if(node.left){
+      left += 1 + this.height(node.left);
+    }
+    if(node.right){
+      right += 1 + this.height(node.right);
+    }
+    return Math.max(left, right);
+  }
    
 
 }

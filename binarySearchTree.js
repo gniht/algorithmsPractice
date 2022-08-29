@@ -1,3 +1,4 @@
+import { mergeSort } from './mergeSort.js';
 
 class Tree {
   constructor(sortedArray){
@@ -237,7 +238,14 @@ class Tree {
     }else{
       return right - left <= 1;
     }  
-  }   
+  }
+  
+  rebalance(){
+    let temp = this.postorder();
+    console.log('temp : ', temp);
+    temp = new Tree(mergeSort(temp));
+    this.root = temp.root;
+  }
 
 }
 

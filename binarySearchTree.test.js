@@ -88,4 +88,9 @@ describe('A binary search tree', () => {
     expect(tree2.isBalanced()).toBe(false);
   });
 
+  it('rebalances a tree which is not balanced', () => {
+    tree2.rebalance();            
+    expect(tree2.isBalanced()).toBe(true);
+  });  
+
 });

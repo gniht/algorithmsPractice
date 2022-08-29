@@ -76,4 +76,16 @@ describe('A binary search tree', () => {
     expect(tree2.depth(15)).toBe(3);
   });
 
+  it('determines whether a tree is balanced', () => {            
+    expect(tree2.isBalanced()).toBe(true);
+  });
+
+  it('reports when a tree is unbalanced', () => { 
+    tree2.insert(21);           
+    tree2.insert(25);           
+    tree2.insert(26);           
+    tree2.insert(29);           
+    expect(tree2.isBalanced()).toBe(false);
+  });
+
 });

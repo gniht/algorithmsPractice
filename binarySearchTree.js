@@ -223,7 +223,21 @@ class Tree {
     }
     return Math.max(left, right);
   }
-   
+
+  isBalanced(){
+    let left = 0;
+    let right = 0;
+    if( this.root.left === null || this.root.right === null ){
+      return this.height(this.root) <= 1;
+    }
+    left = this.height(this.root.left);
+    right = this.height(this.root.right);  
+    if(left > right){
+      return left - right <= 1;
+    }else{
+      return right - left <= 1;
+    }  
+  }   
 
 }
 

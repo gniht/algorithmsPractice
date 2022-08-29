@@ -5,6 +5,7 @@ class Tree {
     this.nodeArray = sortedArray;
     this.root = buildTree(sortedArray);    
   }
+  
   insert(value){
     let currentNode = this.root;
     let searching = true;
@@ -100,9 +101,7 @@ class Tree {
       }     
     }    
     if(currentNode.left && currentNode.right){
-      // two children
-      // todo
-      // find next successor node
+      // two children      
       let successor = currentNode.right;
       let done = false;
       while(!done){
@@ -241,12 +240,10 @@ class Tree {
   }
   
   rebalance(){
-    let temp = this.postorder();
-    console.log('temp : ', temp);
+    let temp = this.postorder();    
     temp = new Tree(mergeSort(temp));
     this.root = temp.root;
   }
-
 }
 
 class TreeNode {
